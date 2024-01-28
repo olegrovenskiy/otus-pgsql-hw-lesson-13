@@ -2,9 +2,21 @@
 
 ## реализовать свой миникластер на 3 ВМ.
 
+Развёрнул 3 Виртуальных Сервера с POSTGRESQL-15
+
+Создал для занятий БД otus_hw_13
+
 ### 1. На 1 ВМ создаем таблицы test для записи, test2 для запросов на чтение.
 
+create table test(id serial, data text);
+create table test2(id serial, data text);
+
+insert into test(data) values('test1');
+
+
 ### 2. Создаем публикацию таблицы test и подписываемся на публикацию таблицы test2 с ВМ №2.
+
+create table test(id serial, data text);
 
 ### 3. На 2 ВМ создаем таблицы test2 для записи, test для запросов на чтение.
 
