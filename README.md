@@ -84,12 +84,12 @@ create publication test_1 for table test1;
 
 create subscription test_sub
 
-connection 'host=10.102.6.28 port=5432 user=postgres password=postgres dbname=otus_hw_13'
+connection 'host=10.15.6.100 port=5432 user=postgres password=postgres dbname=otus_hw_13'
 
 publication test_2 with (copy_data = true);
 
     otus_hw_13=# create subscription test_sub
-    connection 'host=10.102.6.28 port=5432 user=postgres password=postgres dbn  ame=otus_hw_13'
+    connection 'host=10.15.100.28 port=5432 user=postgres password=postgres dbn  ame=otus_hw_13'
     publication test_1 with (copy_data = true);
     WARNING:  publication "test_1" does not exist on the publisher
     NOTICE:  created replication slot "test_sub" on publisher
@@ -165,7 +165,7 @@ connection 'host=10.15.100.27 port=5432 user=postgres password=postgres dbname=o
 publication test_1 with (copy_data = true);
 
         otus_hw_13=# create subscription test_sub
-        otus_hw_13-# connection 'host=10.102.6.27 port=5432 user=postgres password=postgres dbname=otus_hw_13'
+        otus_hw_13-# connection 'host=10.15.100.27 port=5432 user=postgres password=postgres dbname=otus_hw_13'
         otus_hw_13-# publication test_1 with (copy_data = true);
         NOTICE:  created replication slot "test_sub" on publisher
         CREATE SUBSCRIPTION
@@ -182,7 +182,7 @@ publication test_1 with (copy_data = true);
         CREATE SUBSCRIPTION
         otus_hw_13=#
         otus_hw_13=# create subscription test_sub2
-        otus_hw_13-# connection 'host=10.102.6.28 port=5432 user=postgres password=postgres dbname=otus_hw_13'
+        otus_hw_13-# connection 'host=10.15.100.28 port=5432 user=postgres password=postgres dbname=otus_hw_13'
         otus_hw_13-# publication test_2 with (copy_data = true);
         NOTICE:  created replication slot "test_sub2" on publisher
         CREATE SUBSCRIPTION
