@@ -160,7 +160,7 @@ create publication test_2 for table test2;
 
 create subscription test_sub
 
-connection 'host=10.102.6.27 port=5432 user=postgres password=postgres dbname=otus_hw_13'
+connection 'host=10.15.100.27 port=5432 user=postgres password=postgres dbname=otus_hw_13'
 
 publication test_1 with (copy_data = true);
 
@@ -176,7 +176,7 @@ publication test_1 with (copy_data = true);
 ### 5. 3-ю ВМ использовать как реплику для чтения и бэкапов (подписаться на таблицы из ВМ №1 и №2 ).
 
         otus_hw_13=# create subscription test_sub1
-        connection 'host=10.102.6.27 port=5432 user=postgres password=postgres dbname=otus_hw_13'
+        connection 'host=10.15.100.27 port=5432 user=postgres password=postgres dbname=otus_hw_13'
         publication test_1 with (copy_data = true);
         NOTICE:  created replication slot "test_sub1" on publisher
         CREATE SUBSCRIPTION
