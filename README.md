@@ -84,7 +84,7 @@ create publication test_1 for table test1;
 
 create subscription test_sub
 
-connection 'host=10.15.6.100 port=5432 user=postgres password=postgres dbname=otus_hw_13'
+connection 'host=10.15.100.28 port=5432 user=postgres password=postgres dbname=otus_hw_13'
 
 publication test_2 with (copy_data = true);
 
