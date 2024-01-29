@@ -83,7 +83,9 @@ create publication test_1 for table test1;
     otus_hw_13=#
 
 create subscription test_sub
+
 connection 'host=10.102.6.28 port=5432 user=postgres password=postgres dbname=otus_hw_13'
+
 publication test_2 with (copy_data = true);
 
     otus_hw_13=# create subscription test_sub
@@ -156,6 +158,39 @@ create publication test_2 for table test2;
     
     otus_hw_13=#
 
+create subscription test_sub
 
+connection 'host=10.102.6.27 port=5432 user=postgres password=postgres dbname=otus_hw_13'
+
+publication test_1 with (copy_data = true);
+
+        otus_hw_13=# create subscription test_sub
+        otus_hw_13-# connection 'host=10.102.6.27 port=5432 user=postgres password=postgres dbname=otus_hw_13'
+        otus_hw_13-# publication test_1 with (copy_data = true);
+        NOTICE:  created replication slot "test_sub" on publisher
+        CREATE SUBSCRIPTION
+        otus_hw_13=#
+
+подписка создана, и селектом видно что данные передаются 
 
 ### 5. 3-ю ВМ использовать как реплику для чтения и бэкапов (подписаться на таблицы из ВМ №1 и №2 ).
+
+        otus_hw_13=# create subscription test_sub1
+        connection 'host=10.102.6.27 port=5432 user=postgres password=postgres dbname=otus_hw_13'
+        publication test_1 with (copy_data = true);
+        NOTICE:  created replication slot "test_sub1" on publisher
+        CREATE SUBSCRIPTION
+        otus_hw_13=#
+        otus_hw_13=# create subscription test_sub2
+        otus_hw_13-# connection 'host=10.102.6.28 port=5432 user=postgres password=postgres dbname=otus_hw_13'
+        otus_hw_13-# publication test_2 with (copy_data = true);
+        NOTICE:  created replication slot "test_sub2" on publisher
+        CREATE SUBSCRIPTION
+        otus_hw_13=#
+
+Подписки созданы, селектом видно что данные заносятся
+
+основная сложность при выполнении не запутаться в названиях подписок и публикаторов.
+
+Сдаю без задания со *, так как проблемы с временем
+
